@@ -7,7 +7,7 @@ export const fetchCategories = async () => {
 	return response.data
 }
 
-export const fetchPostsByCategory = async categoryId => {
+export const fetchPostsByCategory = async (categoryId) => {
 	const response = await $authHost.get(`${API_URL}/${categoryId}/posts`)
 	return response.data
 }

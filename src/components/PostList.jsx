@@ -3,39 +3,25 @@ import { Spinner } from 'react-bootstrap'
 import { observer } from 'mobx-react-lite'
 import { Context } from '..'
 import PostItem from './PostItem' 
+import { getAllPosts } from '../http/postAPI'
 
-const PostList = observer(() => {
-	const { posts } = useContext(Context)
+const PostList = observer(({ posts }) => {
+	// if (posts.loading) {
+	// 	return <Spinner animation='border' />
+	// }
 
-	useEffect(() => {
-		const fetchData = async () => {
-			posts.setLoading(true)
-			try {
-				const data = await fetchPosts()
-				posts.setPosts(data)
-			} catch (error) {
-				alert('Error fetching posts')
-			} finally {
-				posts.setLoading(false)
-			}
-		}
-
-		fetchData()
-	}, [posts])
-
-	if (posts.loading) {
-		return <Spinner animation='border' />
+	if (!posts.posts || posts.posts.length === 0) {
+		return <p>No posts available</p>
 	}
 
 	return (
 		<div className='post-list'>
-			{posts.posts.length > 0 ? (
-				posts.posts.map(post => <PostItem key={post.id} post={post} />)
-			) : (
-				<p>No posts available</p>
-			)}
+			{posts.posts.map(post => (
+				<PostItem key={post.id} post={post} />
+			))}
 		</div>
 	)
 })
+
 
 export default PostList
