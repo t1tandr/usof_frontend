@@ -29,7 +29,7 @@ const Auth = () => {
 			}
 			user.setUser(data);
 			user.setIsAuth(true);
-			console.log(user)
+			// console.log(user)
 			navigate(POSTS_ROUTE);
 		} catch (error) {
 			alert(error.response.data.message)

@@ -13,7 +13,10 @@ export default class PostsStore {
 	setPosts(postList) {
 		this.posts = postList;
 	}
-	setUser(user) {
-		this.user = user
+	setCategories(categoriesList) {
+		this.categories = categoriesList;
+	}
+	setLoading(bool) {
+		this.loading = bool
 	}
 }

@@ -9,7 +9,7 @@ import Spinner from 'react-bootstrap/Spinner'
 
 const App = observer(() => {
 	const { user } = useContext(Context)
-	const [loading, setLoading] = useState(true)
+	const [ loading, setLoading ] = useState(true)
 
 	useEffect(() => {
 		const verifyUser = async () => {
