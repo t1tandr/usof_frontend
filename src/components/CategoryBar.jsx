@@ -28,7 +28,7 @@ const CategoryBar = observer(({ onCategoryChange }) => {
 	}
 
 	return (
-		<div className='category-bar mb-4'>
+		<div style={{ marginTop: '20px' }} className='category-bar mb-4'>
 			<h3>Categories</h3>
 			<ButtonGroup className='d-flex flex-wrap'>
 				<Button

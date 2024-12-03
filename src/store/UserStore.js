@@ -10,8 +10,13 @@ export default class UserStore {
 	}
 
 	setUser(user) {
-		this.user = user
-		this.setRoles(user.roles.map(role => role.value))
+		if(user === null) {
+			this.user = {};
+			this.setRoles([])
+		} else {
+			this.user = user
+			this.setRoles(user.roles.map(role => role.value))
+		}
 	}
 
 	setIsAuth(bool) {

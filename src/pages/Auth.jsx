@@ -8,8 +8,9 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { FORGOT_PASSWORD_ROUTE, LOGIN_ROUTE, POSTS_ROUTE, REGISTRATION_ROUTE } from '../utils/constants'
 import { login, registration } from '../http/userAPI'
 import { Context } from '..'
+import { observer } from 'mobx-react-lite'
 
-const Auth = () => {
+const Auth = observer(() => {
 	const {user} = useContext(Context);
 	const location = useLocation()
 	const navigate = useNavigate()
@@ -93,6 +94,6 @@ const Auth = () => {
 			</Card>
 		</Container>
 	)
-}
+})
 
 export default Auth

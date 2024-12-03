@@ -12,7 +12,7 @@ const PostItem = ({ post }) => {
 	const handleAuthorClick = e => {
 		e.stopPropagation()
 		if (post.author) {
-			navigate(`/user/${post.author.username}`)
+			navigate(`/user/${post.userId}`)
 		}
 	}
 
@@ -75,7 +75,7 @@ const PostItem = ({ post }) => {
 			<Card.Body>
 				<Card.Title>{post.title}</Card.Title>
 				<Card.Text>{post.content}</Card.Text>
-				<div className='d-flex justify-content-between'>
+				{/* <div className='d-flex justify-content-between'>
 					<Button
 						variant='primary'
 						onClick={e => {
@@ -94,7 +94,7 @@ const PostItem = ({ post }) => {
 					>
 						💬 {post.comments || 0}
 					</Button>
-				</div>
+				</div> */}
 			</Card.Body>
 		</Card>
 	)
